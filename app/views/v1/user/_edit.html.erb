@@ -1,0 +1,42 @@
+<div class="page-header"><h1><%=@menu_title%></h1></div>
+<div class="panel panel-default">
+
+  <div class="panel-body">
+
+    <%#=debug @data_user %>
+
+    <%= form_tag({:action => 'update'}, {:class => 'form-horizontal'}) do %>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-3 control-label">Username</label>
+          <div class="col-sm-9">
+            <input class="form-control" type="text" value="<%=  @data_user.username %>" name="username">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+          <div class="col-sm-9">
+            <input class="form-control" type="text" value="<%=  @data_user.email %>" name="email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-3 control-label">FirstName</label>
+          <div class="col-sm-9">
+            <input class="form-control" type="text" value="<%=  @data_user.firstname %>" name="firstname">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-3 control-label">LastName</label>
+          <div class="col-sm-9">
+            <input class="form-control" type="text" value="<%=  @data_user.lastname %>" name="lastname">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-info">Update</button>
+            <button type="cancel" class="btn btn-info">Cancel</button>
+            <input type="hidden" value="<%= @data_user.id %>" name="id" readonly>
+          </div>
+        </div>
+    <%end%>
+  </div>
+</div>

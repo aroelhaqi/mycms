@@ -1,0 +1,38 @@
+<div class="page-header"><h1><%=@menu_title%></h1></div>
+<div class="panel panel-default">
+
+  <div class="panel-body">
+
+    <%#=debug @data_user %>
+
+    <%= form_tag({:action => 'update'}, {:class => 'form-horizontal'}) do %>
+        <div class="form-group">
+          <label for="channel_name" class="col-sm-3 control-label">Channel Name</label>
+          <div class="col-sm-9">
+            <input class="form-control" type="text" value="<%=  @data_channel.channel_name %>" name="channel_name" size="20">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Chosen Parent ID</label>
+          <div class="col-sm-4">
+            <select class="form-control chosen-select" data-placeholder="Choose a Parent ID" name="parent_id">
+                <%  @data_parent.each do |data_parent| %>
+                <option value="<%=data_parent.id%>"
+                    <% if (data_parent.id == @data_channel.parent_id)  %>
+                      <%="selected"%>
+                    <%end%>>
+                <%=data_parent.channel_name%></option>
+                <% end %>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-info">Update</button>
+            <button type="cancel" class="btn btn-info">Cancel</button>
+            <input type="hidden" value="<%= @data_channel.id %>" name="id" readonly>
+          </div>
+        </div>
+    <%end%>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+class Controllers < ActiveRecord::Migration
+  def change
+  end
+end

@@ -1,0 +1,53 @@
+<div class="page-header"><h1><%=@menu_title%></h1></div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div align="right">
+      <a href="/channel_type/add"><button class="btn btn-success" type="button">+ Add</button></a>
+    </div>
+    <% if !flash[:notice].blank? %>
+        <div class="notice">
+          <%= flash[:notice] %>
+        </div>
+    <% end %>
+    <br>
+    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="basic-datatable">
+      <thead>
+      <tr>
+        <th>Channel Type Name</th>
+        <th>Date Created</th>
+        <th>Date Updated</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <%
+        i = 0
+        @data_channel_type.each do |data|
+        i=i+1
+        if i % 2 == 0
+          class_name = 'odd gradeX'
+        else
+          class_name = 'odd gradeC'
+        end
+      %>
+      <tr class="<%=class_name%>">
+        <td><%=data.channel_type_name%></td>
+        <td><%=data.create_at%></td>
+        <td><%=data.update_at%></td>
+        <td>
+          <a href="channel_type/edit/<%=data.id%>"><i class="fa fa-edit"></i><a/>
+        </td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <table width="100%">
+      <tr>
+        <td align="right"><%= paginate @data_channel_type %></td>
+      </tr>
+    </table>
+
+  </div>
+</div>

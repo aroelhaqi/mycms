@@ -1,0 +1,31 @@
+<div class="page-header"><h1><%=@menu_title%></h1></div>
+<div class="panel panel-default">
+
+    <div class="panel-body">
+
+      <%= form_tag({:action => 'insert'}, {:class => 'form-horizontal'}) do %>
+        <div class="form-group">
+          <label for="channel_name" class="col-sm-3 control-label">Channel Name</label>
+          <div class="col-sm-4">
+            <input name="channel_name" class="form-control" id="channel_name" placeholder="Channel Name">
+          </div>
+        </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Chosen Parent ID</label>
+            <div class="col-sm-4">
+              <select class="form-control chosen-select" data-placeholder="Choose a Parent ID" name="parent_id">
+                <option value="0"></option>
+                <%  @data_parent.each do |data| %>
+                <option value="<%=data.id%>"><%=data.channel_name%></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-info">Submit</button>
+          </div>
+        </div>
+      <%end%>
+    </div>
+</div>

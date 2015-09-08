@@ -1,0 +1,20 @@
+<div class="page-header"><h1><%=@menu_title%></h1></div>
+<div class="panel panel-default">
+
+    <div class="panel-body">
+
+      <%= form_tag({:action => 'insert'}, {:class => 'form-horizontal'}) do %>
+        <div class="form-group">
+          <label for="channel_name" class="col-sm-3 control-label">Channel Type Name</label>
+          <div class="col-sm-4">
+            <input name="channel_type_name" class="form-control" id="channel_type_name" placeholder="Channel Type Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-info">Submit</button>
+          </div>
+        </div>
+      <%end%>
+    </div>
+</div>
