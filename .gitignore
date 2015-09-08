@@ -10,5 +10,6 @@ Gemfile.lock
 # Ignore all logfiles and tempfiles.
 /tmp
 config/database.yml
+db/migrate
 .idea
 .idea/*
